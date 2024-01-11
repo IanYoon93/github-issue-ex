@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import Nav from './components/Nav';
+import Header from './Header';
+
+import Issue from './pages/Issue';
+import CreateIssue from './pages/CreateIssue';
+import Projects from './pages/Projects';
+import PullRequest from './pages/PullRequest';
+import Code from './pages/Code';
+import Security from './pages/Security';
+import Actions from './pages/Actions';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Issue />} />
+        <Route path="/issue" element={<Issue />} />
+        <Route path="/new" element={<CreateIssue />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/pulls" element={<PullRequest />} />
+        <Route path="/code" element={<Code />} />
+        <Route path="/security" element={<Security />} />
+        <Route path="/actions" element={<Actions />} />
+      </Routes>
+    </>
   );
 }
 
